@@ -1,4 +1,4 @@
-/* global it, xit, describe, expect, jasmine, done, jest */
+/* global it, xit, xdescribe, describe, expect, jasmine, done, jest */
 
 import React from 'react'; // eslint-disable-line no-unused-vars
 import moment from 'moment';

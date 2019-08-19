@@ -1,4 +1,4 @@
-/* global it, describe, expect, jest */
+/* global xit, describe, expect, jest */
 
 import React from 'react'; // eslint-disable-line no-unused-vars
 import Datetime from '../DateTime.js';

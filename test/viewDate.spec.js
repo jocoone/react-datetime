@@ -1,4 +1,4 @@
-/* global it, describe, expect */
+/* global it, xdescribe, expect */
 
 import React from 'react'; // eslint-disable-line no-unused-vars
 import moment from 'moment';
