@@ -17,7 +17,7 @@ var CalendarContainer = createClass({
 	},
 
 	render: function() {
-		return React.createElement( this.viewComponents[ this.props.view ], this.props.viewProps );
+		return this.props.open ? React.createElement( this.viewComponents[ this.props.view ], this.props.viewProps ) : null;
 	}
 });
 

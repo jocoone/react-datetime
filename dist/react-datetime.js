@@ -1,5 +1,5 @@
 /*
-react-datetime v2.16.2
+react-datetime v2.16.3
 https://github.com/YouCanBookMe/react-datetime
 MIT: https://github.com/YouCanBookMe/react-datetime/raw/master/LICENSE
 */
@@ -107,6 +107,8 @@ return /******/ (function(modules) { // webpackBootstrap
 		},
 
 		getInitialState: function() {
+			this.checkTZ( this.props );
+			
 			var state = this.getStateFromProps( this.props );
 
 			if ( state.open === undefined )
@@ -114,8 +116,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 			state.currentView = this.props.dateFormat ?
 				(this.props.viewMode || state.updateOn || viewModes.DAYS) : viewModes.TIME;
-
-			this.checkTZ( this.props );
 
 			return state;
 		},
@@ -557,7 +557,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			return React.createElement( ClickableWrapper, {className: className, onClickOut: this.handleClickOutside}, children.concat(
 				React.createElement( 'div',
 					{ key: 'dt', className: 'rdtPicker' },
-					React.createElement( CalendarContainer, { view: this.state.currentView, viewProps: this.getComponentProps() })
+					React.createElement( CalendarContainer, { view: this.state.currentView, open: this.state.open, viewProps: this.getComponentProps() })
 				)
 			));
 		}
@@ -2789,7 +2789,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		},
 
 		render: function() {
-			return React.createElement( this.viewComponents[ this.props.view ], this.props.viewProps );
+			return this.props.open ? React.createElement( this.viewComponents[ this.props.view ], this.props.viewProps ) : null;
 		}
 	});
 

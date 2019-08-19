@@ -11,9 +11,15 @@ const _simulateClickOnElement = (element) => {
 	return element.simulate('click');
 };
 
+const _openDatePicker = (datetime) => {
+	datetime.find('.form-control').simulate('focus');
+};
+
 module.exports = {
 	createDatetime: (props) => {
-		return mount(<Datetime {...props} />);
+		const datepicker = mount(<Datetime {...props} />);
+		_openDatePicker(datepicker);
+		return datepicker;
 	},
 
 	createDatetimeShallow: (props) => {
@@ -23,8 +29,8 @@ module.exports = {
 	/*
 	 * Click Simulations
 	 */
-	openDatepicker: (datetime) => {
-		datetime.find('.form-control').simulate('focus');
+	openDatepicker: (element) => {
+		_openDatePicker(element);
 	},
 
 	clickOnElement: (element) => {
